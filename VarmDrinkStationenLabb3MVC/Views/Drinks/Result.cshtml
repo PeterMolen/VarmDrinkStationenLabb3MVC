@@ -1,0 +1,31 @@
+﻿@model VarmDrinkStationenLabb3MVC.Models.IWarmDrink
+
+@{
+    ViewData["Title"] = "Your Drink is Ready";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string imagePath = "";
+
+    if (Model is VarmDrinkStationenLabb3MVC.Models.Drinks.Coffee)
+    {
+        imagePath = "/images/coffee.jpg";
+    }
+    else if (Model is VarmDrinkStationenLabb3MVC.Models.Drinks.Cappuccino)
+    {
+        imagePath = "/images/cappuccino.jpg";
+    }
+    else if (Model is VarmDrinkStationenLabb3MVC.Models.Drinks.HotChocolate)
+    {
+        imagePath = "/images/hotchocolate.jpg";
+    }
+    else if (Model is VarmDrinkStationenLabb3MVC.Models.Drinks.Water)
+    {
+        imagePath = "/images/hotwater.jpg";
+    }
+}
+
+<h2>Your Drink is Ready</h2>
+
+<img src="@imagePath" alt="Your Drink" style="max-width: 300px;" />
+
+<p>@Model.Consume()</p>

@@ -1,0 +1,23 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Select Your Drink";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Your Drink</h2>
+
+<form asp-action="MakeDrink" method="post">
+    <label for="selectedIndex">Choose a drink:</label>
+    <select id="selectedIndex" name="selectedIndex">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <option value="@i">@Model[i]</option>
+        }
+    </select>
+    <br />
+    <label for="total">Enter amount (ml):</label>
+    <input type="number" id="total" name="total" min="1" />
+    <br />
+    <input type="submit" value="Make Drink" />
+</form>
